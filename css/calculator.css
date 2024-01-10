@@ -1,11 +1,11 @@
 body {
-    background-color: aqua;
+    background-color: black;
 }
 
 .calculator {
     display: flex;
     border: solid;
-    border-color: black;
+    border-color: white;
     width: 320px;
     height: 520px;
     margin: auto;
