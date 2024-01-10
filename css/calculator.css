@@ -1,0 +1,62 @@
+body {
+    background-color: aqua;
+}
+
+.calculator {
+    display: flex;
+    border: solid;
+    border-color: black;
+    width: 400px;
+    height: 500px;
+    margin: auto;
+    padding: 10px;
+    margin-top: 100px;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    border-color: green;
+    width: 400px;
+    height: 500px;
+}
+
+.first {
+    display: flex;
+    border: solid;
+    border-color: brown;
+    height: 150px;
+}
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    border: solid;
+    border-color: red;
+    justify-content: flex-end;
+    flex: 1;
+}
+
+.first {
+    display: flex;
+}
+
+.second {
+    display: flex;
+}
+
+.third {
+    display: flex;
+}
+
+.fourth {
+    display: flex;
+}
+
+.fifth {
+    display: flex;
+}
+
+.sixth {
+    display: flex;
+}
