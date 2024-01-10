@@ -1,21 +1,72 @@
-let currentNumber = 0;
-let secondNumber = 0;
+let firstNumber = '';
+let secondNumber = '';
 let operator = '';
-let bottom = '';
-let top = '';
+let bottomShow = '';
+let topShow = '';
+let result = 0;
 
-function operate(operator, currentNumber, secondNumber){
+function deleteClicked(){
+    let value = arguments[0];
+    console.log(value);
+}
+
+function orangeClicked(){
+    let value = arguments[0];
+    if(value=='-' && firstNumber == ''){
+        firstNumber = firstNumber + '-';
+    }
+
+    if(value=='+'){
+        operator = '+';
+    }
+
+    if(value=='-'){
+        operator = '-';
+    }
+
+    if(value=='*'){
+        operator = '*';
+    }
+
+    if(value=='/'){
+        operator = '/';
+    }
+
+    if(value=='='){
+        console.log(firstNumber);
+        console.log('space');
+        console.log(secondNumber);
+        console.log('space');
+        console.log(operator);
+        console.log('space');
+        console.log(operate(operator,+firstNumber,+secondNumber));
+    }
+
+}
+
+function numbersClicked(){
+    let value = arguments[0];
+    console.log(operator + 'operator');
+    if(operator==''){
+        firstNumber = firstNumber + value;
+        console.log(firstNumber + 'first');
+    }else{
+        secondNumber = secondNumber + value;
+    }
+}
+
+function operate(operator, firstNumber, secondNumber){
     switch(operator){
-        case '+': add(currentNumber,secondNumber);
-        break;
-        case '-': subtract(currentNumber,secondNumber);
-        break;
-        case '*': multiply(currentNumber,secondNumber);
-        break;
-        case '/': divide(currentNumber,secondNumber);
-        break;
-        case '%': percent(currentNumber,secondNumber);
-        break;
+        case '+': return add(firstNumber,secondNumber);
+        
+        case '-': return subtract(firstNumber,secondNumber);
+        
+        case '*': return multiply(firstNumber,secondNumber);
+        
+        case '/': return divide(firstNumber,secondNumber);
+       
+        case '%': return percent(firstNumber,secondNumber);
+       
     }
 }
 
