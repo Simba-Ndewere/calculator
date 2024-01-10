@@ -7,33 +7,30 @@ body {
     border: solid;
     border-color: black;
     width: 320px;
-    height: 500px;
+    height: 520px;
     margin: auto;
     padding: 15px;
     margin-top: 100px;
+    border-radius: 30px;
+    background-color: black;
 }
 
 .inner {
     display: flex;
     flex-direction: column;
-    border: solid;
-    border-color: green;
     width: 320px;
-    height: 500px;
+    height: 520px;
 }
 
 .first {
     display: flex;
-    border: solid;
-    border-color: yellow;
     height: 150px;
+    color: white;
 }
 
 .keyboard {
     display: flex;
     flex-direction: column;
-    border: solid;
-    border-color: red;
     flex: 1;
     justify-content: space-between;
 }
@@ -88,6 +85,7 @@ body {
     align-items: center;
     font-weight: bold;   
     color: white;
+    font-size: 38px;
 }
 
 .c {
@@ -100,6 +98,7 @@ body {
     align-items: center;
     font-weight: bold;
     color: white;
+    font-size: 25px;
 }
 .second .a:nth-child(3) {
     font-size: 20px; /* Adjust the font size as needed */
@@ -110,7 +109,17 @@ body {
 }
 
 .sixth .c:first-child {
-   width: 140px;
+   width: 150px;
 }
 
+.a:hover {
+    background-color: #8b8b8b; /* Change the background color on hover */
+}
 
+.b:hover {
+    background-color: #ffc966
+}
+
+.c:hover {
+    background-color: #8a8a8a;
+}
