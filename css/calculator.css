@@ -1,18 +1,18 @@
 body {
-    background-color: black;
+    background-color: white;
 }
 
 .calculator {
     display: flex;
     border: solid;
-    border-color: white;
+    border-color: black;
     width: 320px;
     height: 520px;
     margin: auto;
     padding: 15px;
     margin-top: 100px;
     border-radius: 30px;
-    background-color: black;
+    background-color: white;
 }
 
 .inner {
@@ -22,21 +22,11 @@ body {
     height: 520px;
 }
 
-.first {
-    display: flex;
-    height: 150px;
-    color: white;
-}
-
 .keyboard {
     display: flex;
     flex-direction: column;
     flex: 1;
     justify-content: space-between;
-}
-
-.first {
-    display: flex;
 }
 
 .second {
@@ -88,6 +78,28 @@ body {
     font-size: 38px;
 }
 
+.first {
+    border: solid;
+    border-color: black;
+    display: flex;
+    flex-direction: column;
+    color: black;
+    justify-content: space-between;
+    height: 150px;
+}
+
+.top {
+    border: solid;
+    border-color: green;
+    height: 75px;
+}
+
+.bottom {
+    border: solid;
+    border-color: red;
+    height: 75px;
+}
+
 .c {
     display: flex;
     background-color: #484848;
@@ -100,12 +112,17 @@ body {
     color: white;
     font-size: 25px;
 }
+
 .second .a:nth-child(3) {
+    font-size: 24px; /* Adjust the font size as needed */
+}
+
+.second .a:nth-child(1) {
     font-size: 20px; /* Adjust the font size as needed */
 }
 
-.second .a:nth-child(4) {
-    font-size: 25px; /* Adjust the font size as needed */
+.second .a:nth-child(2) {
+    font-size: 18px; /* Adjust the font size as needed */
 }
 
 .sixth .c:first-child {
@@ -121,5 +138,10 @@ body {
 }
 
 .c:hover {
-    background-color: #8a8a8a;
+    background-color: #b0b0b0;
+}
+
+
+.keyboard:focus {
+    transform: scale(0.95); /* Add a slight scale effect when pressed */
 }

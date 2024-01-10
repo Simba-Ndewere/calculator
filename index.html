@@ -12,36 +12,39 @@
 <body>
     <div class="calculator">
         <div class="inner">
-            <div class="first">results panel</div>
+            <div class="first">
+                <div class="top">TOP</div>
+                <div class="bottom" >BOTTOM</div>
+            </div>
             <div class="keyboard">
                 <div class="second">
-                    <div class="a">AC</div>
-                    <div class="a">DEL</div>
-                    <div class="a">%</div>
-                    <div class="b">÷</div>
+                    <div class="a" onclick="buttonClicked('ac')">AC</div>
+                    <div class="a" onclick="buttonClicked('del')">DEL</div>
+                    <div class="a" onclick="buttonClicked('%')">%</div>
+                    <div class="b" onclick="buttonClicked('/')">÷</div>
                 </div>
                 <div class="third">
-                    <div class="c">7</div>
-                    <div class="c">8</div>
-                    <div class="c">9</div>
-                    <div class="b">&#215;</div>
+                    <div class="c" onclick="buttonClicked('7')">7</div>
+                    <div class="c" onclick="buttonClicked('8')">8</div>
+                    <div class="c" onclick="buttonClicked('9')">9</div>
+                    <div class="b" onclick="buttonClicked('*')">&#215;</div>
                 </div>
                 <div class="fourth">
-                    <div class="c">4</div>
-                    <div class="c">5</div>
-                    <div class="c">6</div>
-                    <div class="b">-</div>
+                    <div class="c" onclick="buttonClicked('4')">4</div>
+                    <div class="c" onclick="buttonClicked('5')">5</div>
+                    <div class="c" onclick="buttonClicked('6')">6</div>
+                    <div class="b" onclick="buttonClicked('-')">-</div>
                 </div>
                 <div class="fifth">
-                    <div class="c">1</div>
-                    <div class="c">2</div>
-                    <div class="c">3</div>
-                    <div class="b">+</div>
+                    <div class="c" onclick="buttonClicked('1')">1</div>
+                    <div class="c" onclick="buttonClicked('2')">2</div>
+                    <div class="c" onclick="buttonClicked('3')">3</div>
+                    <div class="b" onclick="buttonClicked('4')">+</div>
                 </div>
                 <div class="sixth">
-                    <div class="c">0</div>
-                    <div class="c">.</div>
-                    <div class="b">=</div>
+                    <div class="c" onclick="buttonClicked('0')">0</div>
+                    <div class="c" onclick="buttonClicked('.')">.</div>
+                    <div class="b" onclick="buttonClicked('=')">=</div>
                 </div>
             </div>
         </div>
