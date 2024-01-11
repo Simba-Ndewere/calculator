@@ -79,25 +79,34 @@ body {
 }
 
 .first {
-    border: solid;
-    border-color: black;
     display: flex;
     flex-direction: column;
     color: black;
     justify-content: space-between;
     height: 150px;
+    padding: 5px;
 }
 
 .top {
-    border: solid;
-    border-color: green;
     height: 75px;
+    color: black;
+    border: solid;
+    border-color: red;
+    font-size: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .bottom {
-    border: solid;
-    border-color: red;
     height: 75px;
+    color: black;
+    border: solid;
+    border-color: green;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    font-size: 50px;
 }
 
 .c {
