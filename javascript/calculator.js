@@ -1,7 +1,6 @@
 let firstNumber = '';
 let secondNumber = '';
 let operator = '';
-let bottomShow = '';
 let topShow = '';
 let result = 0;
 
@@ -12,16 +11,12 @@ function deleteClicked() {
 function orangeClicked() {
     let value = arguments[0];
 
-    if (value == '-' && firstNumber == '') {
-        firstNumber = firstNumber + '-';
-    }
-
     if (value == '+') {
         operator = '+';
     }
 
     if (value == '-') {
-        operator = '-';ct
+        operator = '-';
     }
 
     if (value == '*') {
@@ -33,34 +28,42 @@ function orangeClicked() {
     }
 
     if (value == '=') {
-        result = operate(operator, +firstNumber, +secondNumber);
-        clearValues();
+        result = operate(operator, firstNumber, secondNumber);
+        console.log(result);
     }
+    topShow = topShow + operator;
+    display();
 }
 
-function numbersClicked() {
-    let value = arguments[0];
-    display(value);
-    if (operator == '') {
+function numbersClicked(value) {
+    if(operator == ''){
         firstNumber = firstNumber + value;
-        operator = '';
-    } else {
+        topShow = topShow + value;
+    }else {
         secondNumber = secondNumber + value;
+        topShow = topShow + value;
     }
+    display(value);
 }
 
 function operate(operator, firstNumber, secondNumber) {
+    console.log("called: " + operator);
+    let first = +firstNumber;
+    let second = +secondNumber;
+
     switch (operator) {
-        case '+': return add(firstNumber, secondNumber);
-        case '-': return subtract(firstNumber, secondNumber);
-        case '*': return multiply(firstNumber, secondNumber);
-        case '/': return divide(firstNumber, secondNumber);
-        case '%': return percent(firstNumber, secondNumber);
+        case '+': return add(first, second);
+        case '-': return subtract(first, second);
+        case '*': return multiply(first, second);
+        case '/': return divide(first, second);
+        case '%': return percent(first, second);
     }
 }
 
 function add(num1, num2) {
     operator = '';
+    console.log("add");
+    console.log(num1 + num2);
     return num1 + num2;
 }
 
@@ -88,12 +91,17 @@ function clearValues() {
     firstNumber = '';
     secondNumber = '';
     operator = '';
+    top = '';
 }
 
 function display(value){
-    console.log(value);
     let bottom = document.querySelector(".bottom");
     let top = document.querySelector(".top");
-    bottom.textContent = value;
-    top.textContent = firstNumber + operator + secondNumber;
+
+    if(result == 0){
+        top.textContent = topShow;
+        bottom.textContent = value;
+    }else{
+        bottom.textContent = result;
+    }
 }

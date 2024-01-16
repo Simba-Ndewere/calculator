@@ -90,8 +90,6 @@ body {
 .top {
     height: 75px;
     color: black;
-    border: solid;
-    border-color: red;
     font-size: 30px;
     display: flex;
     justify-content: flex-end;
@@ -101,8 +99,6 @@ body {
 .bottom {
     height: 75px;
     color: black;
-    border: solid;
-    border-color: green;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
