@@ -4,34 +4,64 @@ let operator = '';
 let topShow = '';
 let result = 0;
 
+const operators = ["+", "-", "*", "/", "%", "="];
+
 function deleteClicked() {
-    let value = arguments[0];
+    //let value = arguments[0];
 }
 
 function orangeClicked() {
     let value = arguments[0];
 
     if (value == '+') {
+        if(firstNumber !== '' && secondNumber !== ''){
+            result = operate(operator,firstNumber,secondNumber);
+            firstNumber = result;
+            secondNumber = '';
+            topShow = result;
+        }
         operator = '+';
     }
 
     if (value == '-') {
+        if(firstNumber !== '' && secondNumber !== ''){
+            result = operate(operator,firstNumber,secondNumber);
+            firstNumber = result;
+            secondNumber = '';
+            topShow = result;
+        }
         operator = '-';
     }
 
     if (value == '*') {
+        if(firstNumber !== '' && secondNumber !== ''){
+            result = operate(operator,firstNumber,secondNumber);
+            firstNumber = result;
+            secondNumber = '';
+            topShow = result;
+        }
         operator = '*';
     }
 
     if (value == '/') {
+        if(firstNumber !== '' && secondNumber !== ''){
+            result = operate(operator,firstNumber,secondNumber);
+            firstNumber = result;
+            secondNumber = '';
+            topShow = result;
+        }
         operator = '/';
     }
 
     if (value == '=') {
         result = operate(operator, firstNumber, secondNumber);
-        console.log(result);
+        firstNumber = result;
     }
-    topShow = topShow + operator;
+
+    let operatorCheck = topShow[topShow.length -1];
+    if(!operators.includes(operatorCheck)) 
+        topShow = topShow + operator;
+
     display();
 }
 
@@ -47,7 +77,7 @@ function numbersClicked(value) {
 }
 
 function operate(operator, firstNumber, secondNumber) {
-    console.log("called: " + operator);
+
     let first = +firstNumber;
     let second = +secondNumber;
 
@@ -62,8 +92,6 @@ function operate(operator, firstNumber, secondNumber) {
 
 function add(num1, num2) {
     operator = '';
-    console.log("add");
-    console.log(num1 + num2);
     return num1 + num2;
 }
 
@@ -97,11 +125,17 @@ function clearValues() {
 function display(value){
     let bottom = document.querySelector(".bottom");
     let top = document.querySelector(".top");
+    console.log('top'+ topShow);
 
     if(result == 0){
         top.textContent = topShow;
         bottom.textContent = value;
     }else{
+        bottom.textContent = result;
+    }
+
+    if(firstNumber !== '' && secondNumber !== ''){
+        top.textContent = topShow;
         bottom.textContent = result;
     }
 }
