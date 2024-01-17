@@ -54,8 +54,12 @@ function orangeClicked() {
     }
 
     if (value == '=') {
-        result = operate(operator, firstNumber, secondNumber);
-        firstNumber = result;
+        if(firstNumber !== '' && secondNumber !== ''){
+            result = operate(operator,firstNumber,secondNumber);
+            firstNumber = result;
+            secondNumber = '';
+            topShow = result;
+        }
     }
 
     let operatorCheck = topShow[topShow.length -1];
@@ -125,7 +129,6 @@ function clearValues() {
 function display(value){
     let bottom = document.querySelector(".bottom");
     let top = document.querySelector(".top");
-    console.log('top'+ topShow);
 
     if(result == 0){
         top.textContent = topShow;
@@ -137,5 +140,6 @@ function display(value){
     if(firstNumber !== '' && secondNumber !== ''){
         top.textContent = topShow;
         bottom.textContent = result;
+        if(result == 0) bottom.textContent = value;
     }
 }
