@@ -6,8 +6,13 @@ let result = 0;
 
 const operators = ["+", "-", "*", "/", "%", "="];
 
-function deleteClicked() {
+function deleteClicked(value) {
     //let value = arguments[0];
+    if(value==='ac'){
+        clearValues();
+    }else{
+
+    }
 }
 
 function orangeClicked() {
@@ -95,35 +100,37 @@ function operate(operator, firstNumber, secondNumber) {
 }
 
 function add(num1, num2) {
-    operator = '';
     return num1 + num2;
 }
 
 function subtract(num1, num2) {
-    operator = '';
     return num1 - num2;
 }
 
 function multiply(num1, num2) {
-    operator = '';
     return num1 * num2;
 }
 
 function divide(num1, num2) {
-    operator = '';
     return num1 / num2;
 }
 
 function percent(num1, num2) {
-    operator = '';
     return num1 % num2;
 }
 
 function clearValues() {
+    let bottom = document.querySelector(".bottom");
+    let top = document.querySelector(".top");
+
     firstNumber = '';
     secondNumber = '';
     operator = '';
-    top = '';
+    topShow = '';
+    result = 0;
+
+    top.textContent = '';
+    bottom.textContent = '';
 }
 
 function display(value){
