@@ -7,7 +7,6 @@ let result = 0;
 const operators = ["+", "-", "*", "/", "%", "="];
 
 function deleteClicked(value) {
-    //let value = arguments[0];
     if(value==='ac'){
         clearValues();
     }else{
@@ -24,6 +23,10 @@ function orangeClicked() {
             firstNumber = result;
             secondNumber = '';
             topShow = result;
+        }else{
+            let operatorCheck = topShow[topShow.length -1];
+            if(operators.includes(operatorCheck))
+            topShow = topShow.slice(0,-1);
         }
         operator = '+';
     }
@@ -34,6 +37,10 @@ function orangeClicked() {
             firstNumber = result;
             secondNumber = '';
             topShow = result;
+        }else{
+            let operatorCheck = topShow[topShow.length -1];
+            if(operators.includes(operatorCheck))
+            topShow = topShow.slice(0,-1);
         }
         operator = '-';
     }
@@ -44,6 +51,10 @@ function orangeClicked() {
             firstNumber = result;
             secondNumber = '';
             topShow = result;
+        }else{
+            let operatorCheck = topShow[topShow.length -1];
+            if(operators.includes(operatorCheck))
+            topShow = topShow.slice(0,-1);
         }
         operator = '*';
     }
@@ -54,6 +65,10 @@ function orangeClicked() {
             firstNumber = result;
             secondNumber = '';
             topShow = result;
+        }else{
+            let operatorCheck = topShow[topShow.length -1];
+            if(operators.includes(operatorCheck))
+            topShow = topShow.slice(0,-1);
         }
         operator = '/';
     }
@@ -77,11 +92,10 @@ function orangeClicked() {
 function numbersClicked(value) {
     if(operator == ''){
         firstNumber = firstNumber + value;
-        topShow = topShow + value;
     }else {
         secondNumber = secondNumber + value;
-        topShow = topShow + value;
     }
+    topShow = topShow + value;
     display(value);
 }
 
@@ -100,22 +114,27 @@ function operate(operator, firstNumber, secondNumber) {
 }
 
 function add(num1, num2) {
+    operator = '';
     return num1 + num2;
 }
 
 function subtract(num1, num2) {
+    operator = '';
     return num1 - num2;
 }
 
 function multiply(num1, num2) {
+    operator = '';
     return num1 * num2;
 }
 
 function divide(num1, num2) {
+    operator = '';
     return num1 / num2;
 }
 
 function percent(num1, num2) {
+    operator = '';
     return num1 % num2;
 }
 
