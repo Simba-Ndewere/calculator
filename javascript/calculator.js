@@ -73,6 +73,20 @@ function orangeClicked() {
         operator = '/';
     }
 
+    if (value == '%') {
+        if(firstNumber !== '' && secondNumber !== ''){
+            result = operate(operator,firstNumber,secondNumber);
+            firstNumber = result;
+            secondNumber = '';
+            topShow = result;
+        }else{
+            let operatorCheck = topShow[topShow.length -1];
+            if(operators.includes(operatorCheck))
+            topShow = topShow.slice(0,-1);
+        }
+        operator = '%';
+    }
+
     if (value == '=') {
         if(firstNumber !== '' && secondNumber !== ''){
             result = operate(operator,firstNumber,secondNumber);
@@ -90,6 +104,7 @@ function orangeClicked() {
 }
 
 function numbersClicked(value) {
+
     if(operator == ''){
         firstNumber = firstNumber + value;
     }else {
@@ -135,7 +150,7 @@ function divide(num1, num2) {
 
 function percent(num1, num2) {
     operator = '';
-    return num1 % num2;
+    return (num2 * num1) / 100;
 }
 
 function clearValues() {
