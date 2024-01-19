@@ -4,7 +4,7 @@ let operator = '';
 let topShowDisplay = '';
 let result = 0;
 
-const operators = ["+", "-", "*", "/", "%", "="];
+const operators = ["+", "-", "*", "/", "%"];
 
 function deleteClicked(value) {
     if(value==='ac'){
@@ -98,18 +98,30 @@ function orangeClicked() {
 
     let operatorCheck = topShowDisplay[topShowDisplay.length -1];
     if(!operators.includes(operatorCheck)) 
-        topShowDisplay = topShowDisplay + operator;
+        
+        if(firstNumber!== '' || operator === '-')
+            topShowDisplay = topShowDisplay + operator;
 
     display();
 }
 
 function numbersClicked(value) {
+    
+    if(operator == '-' && firstNumber == ''){
+        firstNumber = firstNumber + '-';
+        operator = '';
+    }
+
+    if(operator !== '-' && firstNumber == ''){
+        operator = '';
+    }
 
     if(operator == ''){
         firstNumber = firstNumber + value;
     }else {
         secondNumber = secondNumber + value;
     }
+
     topShowDisplay = topShowDisplay + value;
     display(value);
 }
@@ -129,27 +141,22 @@ function operate(operator, firstNumber, secondNumber) {
 }
 
 function add(num1, num2) {
-    operator = '';
     return num1 + num2;
 }
 
 function subtract(num1, num2) {
-    operator = '';
     return num1 - num2;
 }
 
 function multiply(num1, num2) {
-    operator = '';
     return num1 * num2;
 }
 
 function divide(num1, num2) {
-    operator = '';
     return num1 / num2;
 }
 
 function percent(num1, num2) {
-    operator = '';
     return (num2 * num1) / 100;
 }
 
