@@ -1,7 +1,7 @@
 let firstNumber = '';
 let secondNumber = '';
 let operator = '';
-let topShow = '';
+let topShowDisplay = '';
 let result = 0;
 
 const operators = ["+", "-", "*", "/", "%", "="];
@@ -22,11 +22,11 @@ function orangeClicked() {
             result = operate(operator,firstNumber,secondNumber);
             firstNumber = result;
             secondNumber = '';
-            topShow = result;
+            topShowDisplay = result;
         }else{
-            let operatorCheck = topShow[topShow.length -1];
+            let operatorCheck = topShowDisplay[topShowDisplay.length -1];
             if(operators.includes(operatorCheck))
-            topShow = topShow.slice(0,-1);
+            topShowDisplay = topShowDisplay.slice(0,-1);
         }
         operator = '+';
     }
@@ -36,11 +36,11 @@ function orangeClicked() {
             result = operate(operator,firstNumber,secondNumber);
             firstNumber = result;
             secondNumber = '';
-            topShow = result;
+            topShowDisplay = result;
         }else{
-            let operatorCheck = topShow[topShow.length -1];
+            let operatorCheck = topShowDisplay[topShowDisplay.length -1];
             if(operators.includes(operatorCheck))
-            topShow = topShow.slice(0,-1);
+            topShowDisplay = topShowDisplay.slice(0,-1);
         }
         operator = '-';
     }
@@ -50,11 +50,11 @@ function orangeClicked() {
             result = operate(operator,firstNumber,secondNumber);
             firstNumber = result;
             secondNumber = '';
-            topShow = result;
+            topShowDisplay = result;
         }else{
-            let operatorCheck = topShow[topShow.length -1];
+            let operatorCheck = topShowDisplay[topShowDisplay.length -1];
             if(operators.includes(operatorCheck))
-            topShow = topShow.slice(0,-1);
+            topShowDisplay = topShowDisplay.slice(0,-1);
         }
         operator = '*';
     }
@@ -64,11 +64,11 @@ function orangeClicked() {
             result = operate(operator,firstNumber,secondNumber);
             firstNumber = result;
             secondNumber = '';
-            topShow = result;
+            topShowDisplay = result;
         }else{
-            let operatorCheck = topShow[topShow.length -1];
+            let operatorCheck = topShowDisplay[topShowDisplay.length -1];
             if(operators.includes(operatorCheck))
-            topShow = topShow.slice(0,-1);
+            topShowDisplay = topShowDisplay.slice(0,-1);
         }
         operator = '/';
     }
@@ -78,11 +78,11 @@ function orangeClicked() {
             result = operate(operator,firstNumber,secondNumber);
             firstNumber = result;
             secondNumber = '';
-            topShow = result;
+            topShowDisplay = result;
         }else{
-            let operatorCheck = topShow[topShow.length -1];
+            let operatorCheck = topShowDisplay[topShowDisplay.length -1];
             if(operators.includes(operatorCheck))
-            topShow = topShow.slice(0,-1);
+            topShowDisplay = topShowDisplay.slice(0,-1);
         }
         operator = '%';
     }
@@ -92,13 +92,13 @@ function orangeClicked() {
             result = operate(operator,firstNumber,secondNumber);
             firstNumber = result;
             secondNumber = '';
-            topShow = result;
+            topShowDisplay = result;
         }
     }
 
-    let operatorCheck = topShow[topShow.length -1];
+    let operatorCheck = topShowDisplay[topShowDisplay.length -1];
     if(!operators.includes(operatorCheck)) 
-        topShow = topShow + operator;
+        topShowDisplay = topShowDisplay + operator;
 
     display();
 }
@@ -110,7 +110,7 @@ function numbersClicked(value) {
     }else {
         secondNumber = secondNumber + value;
     }
-    topShow = topShow + value;
+    topShowDisplay = topShowDisplay + value;
     display(value);
 }
 
@@ -154,33 +154,33 @@ function percent(num1, num2) {
 }
 
 function clearValues() {
-    let bottom = document.querySelector(".bottom");
-    let top = document.querySelector(".top");
+    let bottomTextArea = document.querySelector(".bottom");
+    let topTextArea = document.querySelector(".top");
 
     firstNumber = '';
     secondNumber = '';
     operator = '';
-    topShow = '';
+    topShowDisplay = '';
     result = 0;
 
-    top.textContent = '';
-    bottom.textContent = '';
+    topTextArea.textContent = '';
+    bottomTextArea.textContent = '';
 }
 
-function display(value){
-    let bottom = document.querySelector(".bottom");
-    let top = document.querySelector(".top");
+function display(numberClicked){
+    let bottomTextArea = document.querySelector(".bottom");
+    let topTextArea = document.querySelector(".top");
 
     if(result == 0){
-        top.textContent = topShow;
-        bottom.textContent = value;
+        topTextArea.textContent = topShowDisplay;
+        bottomTextArea.textContent = numberClicked;
     }else{
-        bottom.textContent = result;
+        bottomTextArea.textContent = result;
     }
 
     if(firstNumber !== '' && secondNumber !== ''){
-        top.textContent = topShow;
-        bottom.textContent = result;
-        if(result == 0) bottom.textContent = value;
+        topTextArea.textContent = topShowDisplay;
+        bottomTextArea.textContent = result;
+        if(result == 0) bottomTextArea.textContent = numberClicked;
     }
 }
