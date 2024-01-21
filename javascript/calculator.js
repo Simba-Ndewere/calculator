@@ -2,16 +2,35 @@ let firstNumber = '';
 let secondNumber = '';
 let operator = '';
 let topShowDisplay = '';
-let result = 0;
+let result = '';
 
 const operators = ["+", "-", "*", "/", "%"];
 
 function deleteClicked(value) {
+    
     if(value==='ac'){
         clearValues();
     }else{
+        result = '';
+
+        if(firstNumber!='' && operator == ''){
+            console.log('first' + firstNumber);
+            firstNumber = firstNumber.slice(0,-1);
+            topShowDisplay = topShowDisplay.slice(0,-1);
+        }
+
+        if(operator !='' && secondNumber == ''){
+            operator = operator.slice(0,-1);
+            topShowDisplay = topShowDisplay.slice(0,-1);
+        }
+
+        if(secondNumber != ''){
+            secondNumber = secondNumber.slice(0,-1);
+            topShowDisplay = topShowDisplay.slice(0,-1);
+        }
 
     }
+    display();
 }
 
 function orangeClicked() {
@@ -19,7 +38,7 @@ function orangeClicked() {
 
     if (value == '+') {
         if(firstNumber !== '' && secondNumber !== ''){
-            result = operate(operator,firstNumber,secondNumber);
+            result = operate(operator,firstNumber,secondNumber).toString();
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
@@ -33,7 +52,7 @@ function orangeClicked() {
 
     if (value == '-') {
         if(firstNumber !== '' && secondNumber !== ''){
-            result = operate(operator,firstNumber,secondNumber);
+            result = operate(operator,firstNumber,secondNumber).toString();
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
@@ -47,7 +66,7 @@ function orangeClicked() {
 
     if (value == '*') {
         if(firstNumber !== '' && secondNumber !== ''){
-            result = operate(operator,firstNumber,secondNumber);
+            result = operate(operator,firstNumber,secondNumber).toString();
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
@@ -61,7 +80,7 @@ function orangeClicked() {
 
     if (value == '/') {
         if(firstNumber !== '' && secondNumber !== ''){
-            result = operate(operator,firstNumber,secondNumber);
+            result = operate(operator,firstNumber,secondNumber).toString();
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
@@ -75,7 +94,7 @@ function orangeClicked() {
 
     if (value == '%') {
         if(firstNumber !== '' && secondNumber !== ''){
-            result = operate(operator,firstNumber,secondNumber);
+            result = operate(operator,firstNumber,secondNumber).toString();
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
@@ -89,7 +108,7 @@ function orangeClicked() {
 
     if (value == '=') {
         if(firstNumber !== '' && secondNumber !== ''){
-            result = operate(operator,firstNumber,secondNumber);
+            result = operate(operator,firstNumber,secondNumber).toString();
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
@@ -168,7 +187,7 @@ function clearValues() {
     secondNumber = '';
     operator = '';
     topShowDisplay = '';
-    result = 0;
+    result = '';
 
     topTextArea.textContent = '';
     bottomTextArea.textContent = '';
@@ -178,16 +197,10 @@ function display(numberClicked){
     let bottomTextArea = document.querySelector(".bottom");
     let topTextArea = document.querySelector(".top");
 
-    if(result == 0){
+    if(result == '' || firstNumber !== '' && secondNumber !== ''){
         topTextArea.textContent = topShowDisplay;
         bottomTextArea.textContent = numberClicked;
     }else{
         bottomTextArea.textContent = result;
-    }
-
-    if(firstNumber !== '' && secondNumber !== ''){
-        topTextArea.textContent = topShowDisplay;
-        bottomTextArea.textContent = result;
-        if(result == 0) bottomTextArea.textContent = numberClicked;
     }
 }
