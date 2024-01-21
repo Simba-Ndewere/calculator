@@ -3,7 +3,7 @@ let secondNumber = '';
 let operator = '';
 let topShowDisplay = '';
 let result = '';
-
+let opValue = '';
 const operators = ["+", "-", "*", "/", "%"];
 
 function deleteClicked(value) {
@@ -11,7 +11,10 @@ function deleteClicked(value) {
     if(value==='ac'){
         clearValues();
     }else{
-        result = '';
+        
+        if(opValue != '='){
+            result = '';
+        }
 
         if(firstNumber!='' && operator == ''){
             console.log('first' + firstNumber);
@@ -29,25 +32,30 @@ function deleteClicked(value) {
             topShowDisplay = topShowDisplay.slice(0,-1);
         }
 
+
     }
     display();
 }
 
 function orangeClicked() {
     let value = arguments[0];
-
     if (value == '+') {
         if(firstNumber !== '' && secondNumber !== ''){
             result = operate(operator,firstNumber,secondNumber).toString();
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
+            if(result == 'ERROR')
+            setTimeout(function () {
+               clearValues();
+            }, 1000);
         }else{
             let operatorCheck = topShowDisplay[topShowDisplay.length -1];
             if(operators.includes(operatorCheck))
             topShowDisplay = topShowDisplay.slice(0,-1);
         }
         operator = '+';
+        opValue = '';
     }
 
     if (value == '-') {
@@ -56,12 +64,17 @@ function orangeClicked() {
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
+            if(result == 'ERROR')
+            setTimeout(function () {
+               clearValues();
+            }, 1000);
         }else{
             let operatorCheck = topShowDisplay[topShowDisplay.length -1];
             if(operators.includes(operatorCheck))
             topShowDisplay = topShowDisplay.slice(0,-1);
         }
         operator = '-';
+        opValue = '';
     }
 
     if (value == '*') {
@@ -70,12 +83,17 @@ function orangeClicked() {
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
+            if(result == 'ERROR')
+            setTimeout(function () {
+               clearValues();
+            }, 1000);
         }else{
             let operatorCheck = topShowDisplay[topShowDisplay.length -1];
             if(operators.includes(operatorCheck))
             topShowDisplay = topShowDisplay.slice(0,-1);
         }
         operator = '*';
+        opValue = '';
     }
 
     if (value == '/') {
@@ -84,12 +102,17 @@ function orangeClicked() {
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
+            if(result == 'ERROR')
+            setTimeout(function () {
+               clearValues();
+            }, 1000);
         }else{
             let operatorCheck = topShowDisplay[topShowDisplay.length -1];
             if(operators.includes(operatorCheck))
             topShowDisplay = topShowDisplay.slice(0,-1);
         }
         operator = '/';
+        opValue = '';
     }
 
     if (value == '%') {
@@ -98,12 +121,17 @@ function orangeClicked() {
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
+            if(result == 'ERROR')
+            setTimeout(function () {
+               clearValues();
+            }, 1000);
         }else{
             let operatorCheck = topShowDisplay[topShowDisplay.length -1];
             if(operators.includes(operatorCheck))
             topShowDisplay = topShowDisplay.slice(0,-1);
         }
         operator = '%';
+        opValue = '';
     }
 
     if (value == '=') {
@@ -112,7 +140,12 @@ function orangeClicked() {
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
+            if(result == 'ERROR')
+            setTimeout(function () {
+               clearValues();
+            }, 1000);
         }
+        opValue = '=';
     }
 
     let operatorCheck = topShowDisplay[topShowDisplay.length -1];
@@ -136,9 +169,13 @@ function numbersClicked(value) {
     }
 
     if(operator == ''){
-        firstNumber = firstNumber + value;
+        if(firstNumber.length < 9){
+            firstNumber = firstNumber + value;
+        }
     }else {
-        secondNumber = secondNumber + value;
+        if(secondNumber.length < 9){
+            secondNumber = secondNumber + value;
+        }
     }
 
     topShowDisplay = topShowDisplay + value;
@@ -172,6 +209,7 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
+    if(num2 == 0) return "ERROR";
     return num1 / num2;
 }
 
