@@ -45,7 +45,7 @@ function orangeClicked() {
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
-            if(result == 'ERROR')
+            if(result == 'DUMMY')
             setTimeout(function () {
                clearValues();
             }, 1000);
@@ -64,7 +64,7 @@ function orangeClicked() {
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
-            if(result == 'ERROR')
+            if(result == 'DUMMY')
             setTimeout(function () {
                clearValues();
             }, 1000);
@@ -83,7 +83,7 @@ function orangeClicked() {
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
-            if(result == 'ERROR')
+            if(result == 'DUMMY')
             setTimeout(function () {
                clearValues();
             }, 1000);
@@ -102,7 +102,7 @@ function orangeClicked() {
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
-            if(result == 'ERROR')
+            if(result == 'DUMMY')
             setTimeout(function () {
                clearValues();
             }, 1000);
@@ -121,7 +121,7 @@ function orangeClicked() {
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
-            if(result == 'ERROR')
+            if(result == 'DUMMY')
             setTimeout(function () {
                clearValues();
             }, 1000);
@@ -140,7 +140,7 @@ function orangeClicked() {
             firstNumber = result;
             secondNumber = '';
             topShowDisplay = result;
-            if(result == 'ERROR')
+            if(result == 'DUMMY')
             setTimeout(function () {
                clearValues();
             }, 1000);
@@ -170,15 +170,24 @@ function numbersClicked(value) {
 
     if(operator == ''){
         if(firstNumber.length < 9){
-            firstNumber = firstNumber + value;
+            if(value == '.' && firstNumber.includes('.')){
+                //cant append to 1st number
+            }else{
+                firstNumber = firstNumber + value;
+                topShowDisplay = topShowDisplay + value;
+            }
         }
     }else {
         if(secondNumber.length < 9){
-            secondNumber = secondNumber + value;
+            if(value == '.' && secondNumber.includes('.')){
+                //cant append to sec number
+            }else{
+                secondNumber = secondNumber + value;
+                topShowDisplay = topShowDisplay + value;
+            }
         }
     }
 
-    topShowDisplay = topShowDisplay + value;
     display(value);
 }
 
@@ -209,7 +218,7 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
-    if(num2 == 0) return "ERROR";
+    if(num2 == 0) return "DUMMY";
     return num1 / num2;
 }
 
