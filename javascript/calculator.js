@@ -17,7 +17,6 @@ function deleteClicked(value) {
         }
 
         if(firstNumber!='' && operator == ''){
-            console.log('first' + firstNumber);
             firstNumber = firstNumber.slice(0,-1);
             topShowDisplay = topShowDisplay.slice(0,-1);
         }
@@ -31,8 +30,6 @@ function deleteClicked(value) {
             secondNumber = secondNumber.slice(0,-1);
             topShowDisplay = topShowDisplay.slice(0,-1);
         }
-
-
     }
     display();
 }
@@ -171,7 +168,7 @@ function numbersClicked(value) {
     if(operator == ''){
         if(firstNumber.length < 9){
             if(value == '.' && firstNumber.includes('.')){
-                //cant append to 1st number
+                value = '';
             }else{
                 firstNumber = firstNumber + value;
                 topShowDisplay = topShowDisplay + value;
@@ -180,7 +177,7 @@ function numbersClicked(value) {
     }else {
         if(secondNumber.length < 9){
             if(value == '.' && secondNumber.includes('.')){
-                //cant append to sec number
+                value = '';
             }else{
                 secondNumber = secondNumber + value;
                 topShowDisplay = topShowDisplay + value;
