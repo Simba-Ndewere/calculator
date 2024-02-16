@@ -16,19 +16,14 @@ function deleteClicked(value) {
             result = '';
         }
 
-        if(firstNumber!='' && operator == ''){
+        if(operator == ''){
             firstNumber = firstNumber.slice(0,-1);
             topShowDisplay = topShowDisplay.slice(0,-1);
-        }
-
-        if(operator !='' && secondNumber == ''){
-            operator = operator.slice(0,-1);
-            topShowDisplay = topShowDisplay.slice(0,-1);
-        }
-
-        if(secondNumber != ''){
-            secondNumber = secondNumber.slice(0,-1);
-            topShowDisplay = topShowDisplay.slice(0,-1);
+        }else{
+            if(secondNumber.length!=0){
+                secondNumber = secondNumber.slice(0,-1);
+                topShowDisplay = topShowDisplay.slice(0,-1);
+            }   
         }
     }
     display();
