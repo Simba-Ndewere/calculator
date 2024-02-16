@@ -207,7 +207,11 @@ function subtract(num1, num2) {
 
 function multiply(num1, num2) {
     let answer = num2 * num1;
-    return answer.toFixed(4);
+    if (answer % 1 !== 0){
+        return answer.toFixed(4);
+    }else{
+        return answer;
+    }
 }
 
 function divide(num1, num2) {
