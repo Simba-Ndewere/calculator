@@ -168,6 +168,8 @@ function numbersClicked(value) {
                 firstNumber = firstNumber + value;
                 topShowDisplay = topShowDisplay + value;
             }
+        }else{
+            value = '';
         }
     }else {
         if(secondNumber.length < 9){
@@ -177,6 +179,8 @@ function numbersClicked(value) {
                 secondNumber = secondNumber + value;
                 topShowDisplay = topShowDisplay + value;
             }
+        }else{
+            value = '';
         }
     }
 
@@ -208,9 +212,13 @@ function subtract(num1, num2) {
 function multiply(num1, num2) {
     let answer = num2 * num1;
     if (answer % 1 !== 0){
-        return answer.toFixed(4);
+        return answer.toFixed(12);
     }else{
-        return answer;
+        if(answer > 999999999999){
+            return answer.toExponential(4);
+        }else{
+            return answer;
+        }
     }
 }
 

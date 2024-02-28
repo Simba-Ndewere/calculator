@@ -81,7 +81,6 @@ body {
 .first {
     display: flex;
     flex-direction: column;
-    color: black;
     justify-content: space-between;
     height: 150px;
     padding: 5px;
