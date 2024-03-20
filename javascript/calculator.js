@@ -36,7 +36,8 @@ function orangeClicked() {
             result = operate(operator,firstNumber,secondNumber).toString();
             firstNumber = result;
             secondNumber = '';
-            topShowDisplay = result;
+            let resultString = +result;
+            topShowDisplay = resultString.toLocaleString();
             if(result == 'DUMMY')
             setTimeout(function () {
                clearValues();
@@ -55,7 +56,8 @@ function orangeClicked() {
             result = operate(operator,firstNumber,secondNumber).toString();
             firstNumber = result;
             secondNumber = '';
-            topShowDisplay = result;
+            let resultString = +result;
+            topShowDisplay = resultString.toLocaleString();
             if(result == 'DUMMY')
             setTimeout(function () {
                clearValues();
@@ -74,7 +76,8 @@ function orangeClicked() {
             result = operate(operator,firstNumber,secondNumber).toString();
             firstNumber = result;
             secondNumber = '';
-            topShowDisplay = result;
+            let resultString = +result;
+            topShowDisplay = resultString.toLocaleString();
             if(result == 'DUMMY')
             setTimeout(function () {
                clearValues();
@@ -93,7 +96,8 @@ function orangeClicked() {
             result = operate(operator,firstNumber,secondNumber).toString();
             firstNumber = result;
             secondNumber = '';
-            topShowDisplay = result;
+            let resultString = +result;
+            topShowDisplay = resultString.toLocaleString();
             if(result == 'DUMMY')
             setTimeout(function () {
                clearValues();
@@ -112,7 +116,8 @@ function orangeClicked() {
             result = operate(operator,firstNumber,secondNumber).toString();
             firstNumber = result;
             secondNumber = '';
-            topShowDisplay = result;
+            let resultString = +result;
+            topShowDisplay = resultString.toLocaleString();
             if(result == 'DUMMY')
             setTimeout(function () {
                clearValues();
@@ -131,7 +136,9 @@ function orangeClicked() {
             result = operate(operator,firstNumber,secondNumber).toString();
             firstNumber = result;
             secondNumber = '';
-            topShowDisplay = result;
+            let resultString = +result;
+            topShowDisplay = resultString.toLocaleString();
+
             if(result == 'DUMMY')
             setTimeout(function () {
                clearValues();
@@ -139,6 +146,8 @@ function orangeClicked() {
         }
         opValue = '=';
     }
+
+
 
     let operatorCheck = topShowDisplay[topShowDisplay.length -1];
     if(!operators.includes(operatorCheck)) 
@@ -245,6 +254,10 @@ function clearValues() {
     bottomTextArea.textContent = '';
 }
 
+function isNumber(value) {
+    return typeof value === 'number';
+}
+  
 function display(numberClicked){
     let bottomTextArea = document.querySelector(".bottom");
     let topTextArea = document.querySelector(".top");
@@ -253,6 +266,7 @@ function display(numberClicked){
         topTextArea.textContent = topShowDisplay;
         bottomTextArea.textContent = numberClicked;
     }else{
-        bottomTextArea.textContent = result;
+        let resultString = +result;
+        bottomTextArea.textContent = resultString.toLocaleString();
     }
 }
