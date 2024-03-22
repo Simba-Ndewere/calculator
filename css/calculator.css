@@ -89,7 +89,7 @@ body {
 .top {
     height: 75px;
     color: black;
-    font-size: 30px;
+    font-size: 25px;
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -101,7 +101,7 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    font-size: 50px;
+    font-size: 40px;
 }
 
 .c {
