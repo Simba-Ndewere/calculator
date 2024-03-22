@@ -138,7 +138,6 @@ function orangeClicked() {
             secondNumber = '';
             let resultString = +result;
             topShowDisplay = resultString.toLocaleString();
-
             if(result == 'DUMMY')
             setTimeout(function () {
                clearValues();
@@ -146,8 +145,6 @@ function orangeClicked() {
         }
         opValue = '=';
     }
-
-
 
     let operatorCheck = topShowDisplay[topShowDisplay.length -1];
     if(!operators.includes(operatorCheck)) 
@@ -224,6 +221,7 @@ function multiply(num1, num2) {
         return answer.toFixed(12);
     }else{
         if(answer > 999999999999){
+            console.log(answer);
             return answer.toExponential(4);
         }else{
             return answer;
@@ -267,6 +265,10 @@ function display(numberClicked){
         bottomTextArea.textContent = numberClicked;
     }else{
         let resultString = +result;
-        bottomTextArea.textContent = resultString.toLocaleString();
+        if(result < 999999999999){  
+            bottomTextArea.textContent = resultString.toLocaleString();
+        }else{
+            bottomTextArea.textContent = result;
+        }
     }
 }
