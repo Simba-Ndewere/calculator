@@ -7,193 +7,155 @@ let opValue = '';
 const operators = ["+", "-", "*", "/", "%"];
 
 function deleteClicked(value) {
-    
-    if(value==='ac'){
+
+    if (value === 'ac') {
         clearValues();
-    }else{
-        
-        if(opValue != '='){
+    } else {
+
+        if (opValue != '=') {
             result = '';
         }
 
-        if(operator == ''){
-            firstNumber = firstNumber.slice(0,-1);
-            topShowDisplay = topShowDisplay.slice(0,-1);
-        }else{
-            if(secondNumber.length!=0){
-                secondNumber = secondNumber.slice(0,-1);
-                topShowDisplay = topShowDisplay.slice(0,-1);
-            }   
+        if (operator == '') {
+            firstNumber = firstNumber.slice(0, -1);
+            topShowDisplay = topShowDisplay.slice(0, -1);
+        } else {
+            if (secondNumber.length != 0) {
+                secondNumber = secondNumber.slice(0, -1);
+                topShowDisplay = topShowDisplay.slice(0, -1);
+            }
         }
     }
     display();
 }
 
 function orangeClicked() {
-    let value = arguments[0];
-    if (value == '+') {
-        if(firstNumber !== '' && secondNumber !== ''){
-            result = operate(operator,firstNumber,secondNumber).toString();
-            firstNumber = result;
-            secondNumber = '';
-            let resultString = +result;
-            topShowDisplay = resultString.toLocaleString();
-            if(result == 'DUMMY')
-            setTimeout(function () {
-               clearValues();
-            }, 1000);
-        }else{
-            let operatorCheck = topShowDisplay[topShowDisplay.length -1];
-            if(operators.includes(operatorCheck))
-            topShowDisplay = topShowDisplay.slice(0,-1);
-        }
-        operator = '+';
-        opValue = '';
+    switch (arguments[0]) {
+        case '+': addClicked();
+        break;
+        case '-': subtractClicked();
+        break;
+        case '*': multiplyClicked();
+        break;
+        case '/': divideClicked();
+        break;
+        case '%': percentClicked();
+        break;
+        case '=': equalsClicked();
     }
+}
 
-    if (value == '-') {
-        if(firstNumber !== '' && secondNumber !== ''){
-            result = operate(operator,firstNumber,secondNumber).toString();
-            firstNumber = result;
-            secondNumber = '';
-            let resultString = +result;
-            topShowDisplay = resultString.toLocaleString();
-            if(result == 'DUMMY')
+function addClicked() {
+    operator = '+';
+    operate();
+}
+
+function subtractClicked() {
+    operator = '-';
+    operate();
+}
+
+function multiplyClicked() {
+    operator = '*';
+    operate();
+}
+
+function divideClicked() {
+    operator = '/'; 
+    operate();
+}
+
+function percentClicked() {
+    operator = '%';
+    operate(); 
+}
+
+function equalsClicked() {
+    if (firstNumber !== '' && secondNumber !== '') {
+        result = calculate(operator, firstNumber, secondNumber).toString();
+        firstNumber = result;
+        secondNumber = '';
+        let resultString = +result;
+        topShowDisplay = resultString.toLocaleString();
+        if (result == 'DUMMY')
             setTimeout(function () {
-               clearValues();
+                clearValues();
             }, 1000);
-        }else{
-            let operatorCheck = topShowDisplay[topShowDisplay.length -1];
-            if(operators.includes(operatorCheck))
-            topShowDisplay = topShowDisplay.slice(0,-1);
-        }
-        operator = '-';
-        opValue = '';
     }
+    opValue = '=';
+    let operatorCheck = topShowDisplay[topShowDisplay.length - 1];
+    if (!operators.includes(operatorCheck))
 
-    if (value == '*') {
-        if(firstNumber !== '' && secondNumber !== ''){
-            result = operate(operator,firstNumber,secondNumber).toString();
-            firstNumber = result;
-            secondNumber = '';
-            let resultString = +result;
-            topShowDisplay = resultString.toLocaleString();
-            if(result == 'DUMMY')
+        if (firstNumber !== '')
+            topShowDisplay = topShowDisplay + operator;
+
+    display();
+}
+
+function operate(){
+    if (firstNumber !== '' && secondNumber !== '') {
+        result = calculate(operator, firstNumber, secondNumber).toString();
+        firstNumber = result;
+        secondNumber = '';
+        let resultString = +result;
+        topShowDisplay = resultString.toLocaleString();
+        if (result == 'DUMMY')
             setTimeout(function () {
-               clearValues();
+                clearValues();
             }, 1000);
-        }else{
-            let operatorCheck = topShowDisplay[topShowDisplay.length -1];
-            if(operators.includes(operatorCheck))
-            topShowDisplay = topShowDisplay.slice(0,-1);
-        }
-        operator = '*';
-        opValue = '';
+    } else {
+        let operatorCheck = topShowDisplay[topShowDisplay.length - 1];
+        if (operators.includes(operatorCheck))
+            topShowDisplay = topShowDisplay.slice(0, -1);
     }
+    opValue = '';
+    let operatorCheck = topShowDisplay[topShowDisplay.length - 1];
+    if (!operators.includes(operatorCheck))
 
-    if (value == '/') {
-        if(firstNumber !== '' && secondNumber !== ''){
-            result = operate(operator,firstNumber,secondNumber).toString();
-            firstNumber = result;
-            secondNumber = '';
-            let resultString = +result;
-            topShowDisplay = resultString.toLocaleString();
-            if(result == 'DUMMY')
-            setTimeout(function () {
-               clearValues();
-            }, 1000);
-        }else{
-            let operatorCheck = topShowDisplay[topShowDisplay.length -1];
-            if(operators.includes(operatorCheck))
-            topShowDisplay = topShowDisplay.slice(0,-1);
-        }
-        operator = '/';
-        opValue = '';
-    }
-
-    if (value == '%') {
-        if(firstNumber !== '' && secondNumber !== ''){
-            result = operate(operator,firstNumber,secondNumber).toString();
-            firstNumber = result;
-            secondNumber = '';
-            let resultString = +result;
-            topShowDisplay = resultString.toLocaleString();
-            if(result == 'DUMMY')
-            setTimeout(function () {
-               clearValues();
-            }, 1000);
-        }else{
-            let operatorCheck = topShowDisplay[topShowDisplay.length -1];
-            if(operators.includes(operatorCheck))
-            topShowDisplay = topShowDisplay.slice(0,-1);
-        }
-        operator = '%';
-        opValue = '';
-    }
-
-    if (value == '=') {
-        if(firstNumber !== '' && secondNumber !== ''){
-            result = operate(operator,firstNumber,secondNumber).toString();
-            firstNumber = result;
-            secondNumber = '';
-            let resultString = +result;
-            topShowDisplay = resultString.toLocaleString();
-            if(result == 'DUMMY')
-            setTimeout(function () {
-               clearValues();
-            }, 1000);
-        }
-        opValue = '=';
-    }
-
-    let operatorCheck = topShowDisplay[topShowDisplay.length -1];
-    if(!operators.includes(operatorCheck)) 
-        
-        if(firstNumber!== '' || operator === '-')
+        if (firstNumber !== '')
             topShowDisplay = topShowDisplay + operator;
 
     display();
 }
 
 function numbersClicked(value) {
-    
-    if(operator == '-' && firstNumber == ''){
+
+    if (operator == '-' && firstNumber == '') {
         firstNumber = firstNumber + '-';
         operator = '';
     }
 
-    if(operator !== '-' && firstNumber == ''){
+    if (operator !== '-' && firstNumber == '') {
         operator = '';
     }
 
-    if(operator == ''){
-        if(firstNumber.length < 9){
-            if(value == '.' && firstNumber.includes('.')){
+    if (operator == '') {
+        if (firstNumber.length < 9) {
+            if (value == '.' && firstNumber.includes('.')) {
                 value = '';
-            }else{
+            } else {
                 firstNumber = firstNumber + value;
                 topShowDisplay = topShowDisplay + value;
             }
-        }else{
+        } else {
             value = '';
         }
-    }else {
-        if(secondNumber.length < 9){
-            if(value == '.' && secondNumber.includes('.')){
+    } else {
+        if (secondNumber.length < 9) {
+            if (value == '.' && secondNumber.includes('.')) {
                 value = '';
-            }else{
+            } else {
                 secondNumber = secondNumber + value;
                 topShowDisplay = topShowDisplay + value;
             }
-        }else{
+        } else {
             value = '';
         }
     }
-
     display(value);
 }
 
-function operate(operator, firstNumber, secondNumber) {
+function calculate(operator, firstNumber, secondNumber) {
 
     let first = +firstNumber;
     let second = +secondNumber;
@@ -217,20 +179,20 @@ function subtract(num1, num2) {
 
 function multiply(num1, num2) {
     let answer = num2 * num1;
-    if (answer % 1 !== 0){
+    if (answer % 1 !== 0) {
         return answer.toFixed(12);
-    }else{
-        if(answer > 999999999999){
+    } else {
+        if (answer > 999999999999) {
             console.log(answer);
             return answer.toExponential(4);
-        }else{
+        } else {
             return answer;
         }
     }
 }
 
 function divide(num1, num2) {
-    if(num2 == 0) return "DUMMY";
+    if (num2 == 0) return "DUMMY";
     return num1 / num2;
 }
 
@@ -255,19 +217,19 @@ function clearValues() {
 function isNumber(value) {
     return typeof value === 'number';
 }
-  
-function display(numberClicked){
+
+function display(numberClicked) {
     let bottomTextArea = document.querySelector(".bottom");
     let topTextArea = document.querySelector(".top");
 
-    if(result == '' || firstNumber !== '' && secondNumber !== ''){
+    if (result == '' || firstNumber !== '' && secondNumber !== '') {
         topTextArea.textContent = topShowDisplay;
         bottomTextArea.textContent = numberClicked;
-    }else{
+    } else {
         let resultString = +result;
-        if(result < 999999999999){  
+        if (result < 999999999999) {
             bottomTextArea.textContent = resultString.toLocaleString();
-        }else{
+        } else {
             bottomTextArea.textContent = result;
         }
     }
