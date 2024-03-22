@@ -75,8 +75,14 @@ function equalsClicked() {
         result = calculate(operator, firstNumber, secondNumber).toString();
         firstNumber = result;
         secondNumber = '';
-        let resultString = +result;
-        topShowDisplay = resultString.toLocaleString();
+        let resultNum = +result;
+
+        if(resultNum > 999999999999){
+            topShowDisplay = resultNum.toExponential(4);
+        } else {
+            topShowDisplay = resultNum.toLocaleString();
+        }
+
         if (result == 'DUMMY')
             setTimeout(function () {
                 clearValues();
@@ -97,10 +103,16 @@ function operate(){
         result = calculate(operator, firstNumber, secondNumber).toString();
         firstNumber = result;
         secondNumber = '';
-        let resultString = +result;
-        topShowDisplay = resultString.toLocaleString();
+        let resultNum = +result;
+
+        if(resultNum > 999999999999){
+            topShowDisplay = resultNum.toExponential(4);
+        } else {
+            topShowDisplay = resultNum.toLocaleString();
+        }
+
         if (result == 'DUMMY')
-            setTimeout(function () {
+            setTimeout(function() {
                 clearValues();
             }, 1000);
     } else {
@@ -182,12 +194,7 @@ function multiply(num1, num2) {
     if (answer % 1 !== 0) {
         return answer.toFixed(12);
     } else {
-        if (answer > 999999999999) {
-            console.log(answer);
-            return answer.toExponential(4);
-        } else {
-            return answer;
-        }
+       return answer;
     }
 }
 
@@ -226,11 +233,12 @@ function display(numberClicked) {
         topTextArea.textContent = topShowDisplay;
         bottomTextArea.textContent = numberClicked;
     } else {
-        let resultString = +result;
-        if (result < 999999999999) {
-            bottomTextArea.textContent = resultString.toLocaleString();
+        let resultNum = +result;
+        if (resultNum < 999999999999) {
+            bottomTextArea.textContent = resultNum.toLocaleString();
         } else {
-            bottomTextArea.textContent = result;
+            bottomTextArea.textContent = resultNum.toExponential(4);
         }
+        
     }
 }
