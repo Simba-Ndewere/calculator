@@ -130,6 +130,7 @@ function numbersClicked(value) {
 
     if (operator == '-' && firstNumber == '') {
         firstNumber = firstNumber + '-';
+        topShowDisplay = topShowDisplay + '-';
         operator = '';
     }
 
@@ -224,7 +225,6 @@ function isNumber(value) {
 function display(numberClicked) {
     let bottomTextArea = document.querySelector(".bottom");
     let topTextArea = document.querySelector(".top");
-
     if (result == '' || firstNumber !== '' && secondNumber !== '') {
         topTextArea.textContent = topShowDisplay;
         bottomTextArea.textContent = numberClicked;
