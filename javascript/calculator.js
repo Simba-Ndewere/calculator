@@ -31,38 +31,18 @@ function deleteClicked(value) {
 
 function orangeClicked() {
     switch (arguments[0]) {
-        case '+': addClicked();
+        case '+': operate('+');
         break;
-        case '-': subtractClicked();
+        case '-': operate('-');
         break;
-        case '*': multiplyClicked();
+        case '*': operate('*');
         break;
-        case '/': divideClicked();
+        case '/': operate('/');
         break;
-        case '%': percentClicked();
+        case '%': operate('%');
         break;
         case '=': equalsClicked();
     }
-}
-
-function addClicked() {
-    operate('+');
-}
-
-function subtractClicked() {
-    operate('-');
-}
-
-function multiplyClicked() {
-    operate('*');
-}
-
-function divideClicked() {
-    operate('/');
-}
-
-function percentClicked() {
-    operate('%'); 
 }
 
 function equalsClicked() {
