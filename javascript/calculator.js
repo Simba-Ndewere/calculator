@@ -46,28 +46,23 @@ function orangeClicked() {
 }
 
 function addClicked() {
-    operator = '+';
-    operate();
+    operate('+');
 }
 
 function subtractClicked() {
-    operator = '-';
-    operate();
+    operate('-');
 }
 
 function multiplyClicked() {
-    operator = '*';
-    operate();
+    operate('*');
 }
 
 function divideClicked() {
-    operator = '/'; 
-    operate();
+    operate('/');
 }
 
 function percentClicked() {
-    operator = '%';
-    operate(); 
+    operate('%'); 
 }
 
 function equalsClicked() {
@@ -121,6 +116,7 @@ function operate(){
             topShowDisplay = topShowDisplay.slice(0, -1);
     }
     opValue = '';
+    operator = arguments[0];
     let operatorCheck = topShowDisplay[topShowDisplay.length - 1];
     if (!operators.includes(operatorCheck))
 
