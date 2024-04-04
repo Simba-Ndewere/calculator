@@ -198,10 +198,6 @@ function clearValues() {
     bottomTextArea.textContent = '';
 }
 
-function isNumber(value) {
-    return typeof value === 'number';
-}
-
 function display(numberClicked) {
     let bottomTextArea = document.querySelector(".bottom");
     let topTextArea = document.querySelector(".top");
